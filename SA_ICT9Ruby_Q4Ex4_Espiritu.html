@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Length Converter</title>
+	<link rel="stylesheet" type="text/css" href="style3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Castoro+Titling&family=Chivo+Mono:ital,wght@1,100&family=Delicious+Handrawn&family=Gloock&family=IBM+Plex+Serif:ital,wght@1,200&family=Inconsolata&family=Indie+Flower&family=Instrument+Serif&family=Martian+Mono:wght@300&family=Oswald&family=Playfair+Display:ital,wght@1,400;1,700&family=Roboto+Mono:ital@1&family=Shantell+Sans:wght@300&family=Unbounded:wght@300&family=Vidaloka&display=swap" rel="stylesheet">
+</head>
+<style>
+body{
+    font-family: 'Instrument Serif', serif;
+    background: #7902DB;
+	margin:0px;
+	padding: 0px;
+}
+.converter-body{
+	width: 400px;
+	height: 1500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0px 0px 2px 1px #cacaca;
+}
+.converter-title{
+	text-align: center;
+	margin: 13px 0px;
+}
+input{
+	height: 25px;
+	text-align: center;
+}
+#input{
+	margin-left: 25px;
+}
+#inputType,#resultType{
+	width: 166.66px;
+	margin-left: 25px;
+	color: silver;
+}
+#resultType{
+	mergin-left: 12.5px;
+}
+</style>
+<body><center>
+
+
+<div class="container"><center>
+<p id="today"></p>
+
+<script>
+const date = new Date();
+document.getElementById("today").innerHTML = date;
+</script>
+</div></center>
+
+    <p><div class="container">
+    	
+    	<h1 class="converter-title">Length Converter</h1>
+
+    	<input type="text" placeholder="Input" id="input">
+    	<span>=</span>
+    	<input type="text" placeholder="Result" id="result">
+
+
+    	<select id="inputType">
+    		<option value="meter">Meter</option>
+    		<option value="kilometer">kiloeter</option>
+    		<option value="Centimeter">Centimeter</option>
+    	</select>
+
+    	<select id="resultType">
+    		<option value="meter">Meter</option>
+    		<option value="kilometer">kiloeter</option>
+    		<option value="Centimeter">Centimeter</option>
+    	</select>
+    </center></div></p>
+
+
+    <p><div class="container"><center>
+    	<button id="convert-btn">Convert</button>
+    </center></div></p>
+
+
+    <script type="text/javascript">
+var input = document.getElementById('input');
+var result = document.getElementById('result');
+var inputType = document.getElementById('inputType')
+var resultType = document.getElementById('resultType')
+var inputTypeValue,resultTypeValue;
+
+//now add listener
+input.addEventListener("keyup",myResult);
+inputType.addEventListener("change",myResult)
+resultType.addEventListener("change",myResult)
+
+//taking initial value
+inputTypeValue = inputType.value;
+resultTypeValue = resultType.value;
+
+
+function myResult(){
+
+
+    //when we change the input and output type value we nedd to update the 
+    //inputTypeValue and resultTypeValue
+
+    inputTypeValue = inputType.value;
+    resultTypeValue = resultType.value;
+
+
+//now compare the input and resultType value and add formula
+
+   if (inputTypeValue === "meter" && resultTypeValue==="kilometer"){
+
+   	    //this is meter to kilometer formula
+   	    result.value = Number(input.value) * 0.001;
+   }else if(inputTypeValue === "meter" && resultTypeValue==="Centimeter"){
+
+   	   //this is meter to Centimeter formula
+   	   result.value = Number(input.value) * 100;
+
+   }else if(inputTypeValue === "meter" && resultTypeValue==="meter"){
+
+   	   //this is meter to meter formula
+   	   result.value = input.value 
+   }
+
+
+   if (inputTypeValue === "kilometer" && resultTypeValue==="meter"){
+   	    //this is kilometer to meter formula
+   	    result.value = Number(input.value) * 1000;
+   }else if(inputTypeValue === "kilometer" && resultTypeValue==="Centimeter"){
+   	  //this is kilometer to Centimeter formula
+   	  result.value = Number(input.value) * 100000;
+   }else if(inputTypeValue === "kilometer" && resultTypeValue==="kilometer"){
+   	  //this is kilometer to kilometer formula
+   	  result.value = (input.value)
+   }
+
+   if (inputTypeValue === "Centimeter" && resultTypeValue==="kilometer"){
+   	    //this is Centimeter to kilometer formula
+   	    result.value = Number(input.value) * 0.00001;
+   }else if(inputTypeValue === "Centimeter" && resultTypeValue==="meter"){
+   	  //this is Centimeter to meter formula
+   	  result.value = Number(input.value) * 0.01;
+   }else if(inputTypeValue === "Centimeter" && resultTypeValue==="Centimeter"){
+   	  //this is Centimeter to Centimeter formula
+   	  result.value = (input.value)
+   }
+
+
+
+
+
+
+}
+
+    </script>
+
+
+
+
+
+    <center><p><div class="container">
+    	<center>
+    	
+    	<h1 class="converter-title">Temprature Conversion</h1>
+<form>
+    	<input type="text" placeholder="Input" id="input">
+    	<span>=</span>
+    	<input type="text" placeholder="Result" id="result">
+
+
+    	<select id="inputType">
+    		<option value="fahrenheit">Farenheit</option>
+    		<option value="celcius">Celsius</option>
+    	</select>
+
+    	<select id="resultType">
+    		<option value="farenheit">Farenheit</option>
+    		<option value="celsius">Celsius</option>
+    	</select>
+</form>
+        
+    </div></p></center>
+
+
+    <p><div class="container"><center>
+    	<button id="convert-btn">Convert</button>
+    </center></div></p>
+
+
+
+
+    <script type="text/javascript">
+            var input = document.getElementById('input');
+            var result = document.getElementById('result');
+            var inputType = document.getElementById('inputType')
+            var resultType = document.getElementById('resultType')
+            var inputTypeValue,resultTypeValue;
+
+            //now add listener
+            input.addEventListener("keyup",myResult);
+            inputType.addEventListener("change",myResult)
+            resultType.addEventListener("change",myResult)
+
+            //taking initial value
+            inputTypeValue = inputType.value;
+            resultTypeValue = resultType.value;
+
+
+            function myResult(){
+
+
+            //when we change the input and output type value we nedd to update the 
+            //inputTypeValue and resultTypeValue
+
+            inputTypeValue = inputType.value;
+            resultTypeValue = resultType.value;
+
+
+//now compare the input and resultType value and add formula
+
+   if (inputTypeValue === "celsius" && resultTypeValue==="fahrenheit"){
+
+   	    //this is meter to kilometer formula
+   	    result.value = Number(input.value) ;
+   }else if(inputTypeValue === "celsius" && resultTypeValue==="celsius"){
+
+   	   //this is meter to Centimeter formula
+   	   result.value = Number(input.value) *;
+   }
+
+
+   if (inputTypeValue === "fahrenheit" && resultTypeValue==="celsius"){
+   	    //this is kilometer to meter formula
+   	    result.value = Number(input.value) * ;
+   }else if(inputTypeValue === "fahrenheit" && resultTypeValue==="fahrenheit"){
+   	  //this is kilometer to Centimeter formula
+   	  result.value = Number(input.value) * ;
+   }
+    </script>
+
+
+    </script>
+</center>
+</body>
+</html>
